@@ -1,75 +1,36 @@
-package org.example;// 문제 : 아래 코드가 실행되도록 자동차 클래스를 만들어주세요.
-
-import java.util.Scanner;
+package org.example;
+// 문제 : 아래와 같이 출력 되도록 해주세요.
 
 class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int a, b;
-        System.out.println("=============");
-        System.out.println("더하기입니다.");
-        System.out.println("a 값입력");
-        a = sc.nextInt();
-        System.out.println("b 값입력");
-        b = sc.nextInt();
+        // 예시 시작
+        int c = 20 + Math.더하기(10, 20);
+        System.out.println(c);
+        // 예시 끝
 
-        int x = 계산기.더한결과를_화면에_출력(a, b);
-        System.out.printf("%d + %d = %d \n", a, b, x);
-        // 출력 => 결과 : 30
-        System.out.println("=============");
-        System.out.println("더하기입니다.");
-        System.out.println("a 값입력");
-        a = sc.nextInt();
-        System.out.println("b 값입력");
-        b = sc.nextInt();
+        int 결과1 = Math.oneToSum(3);
+        System.out.println("결과1 : " + 결과1);
+        // 출력 : 결과1 : 6
 
-        int y = 계산기.더한결과를_화면에_출력(a, b);
-        System.out.printf("%d + %d = %d \n", a, b, y);
-        // 출력 => 결과 : 70
-        System.out.println("=============");
-        System.out.println("빼기입니다.");
-        System.out.println("a 값입력");
-        a = sc.nextInt();
-        System.out.println("b 값입력");
-        b = sc.nextInt();
-
-        int c = 계산기.뺀결과를_화면에_출력(a, b);
-        System.out.printf("%d - %d = %d \n", a, b, c);
-        // 출력 => 결과 : 30
-        System.out.println("=============");
-        System.out.println("빼기입니다.");
-        System.out.println("a 값입력");
-        a = sc.nextInt();
-        System.out.println("b 값입력");
-        b = sc.nextInt();
-
-        int d = 계산기.뺀결과를_화면에_출력(a, b);
-        System.out.printf("%d - %d = %d \n", a, b, d);
-        // 출력 => 결과 : 3
-        System.out.println("=============");
-        System.out.println("곱하기입니다.");
-        System.out.println("a 값입력");
-        a = sc.nextInt();
-        System.out.println("b 값입력");
-        b = sc.nextInt();
-
-        int e = 계산기.곱한결과를_화면에_출력(a, b);
-        System.out.printf("%d * %d = %d \n", a, b, e);
-        // 출력 => 결과 : 10
+        int 결과2 = Math.oneToSum(10);
+        System.out.println("결과2 : " + 결과2);
+        // 출력 : 결과2 : 55
     }
 }
 
-class 계산기 {
+class Math {
+    static int 더하기(int a, int b) {
+        int c = a + b;
 
-    public static int 더한결과를_화면에_출력(int a, int b) {
-        return a + b;
+        return c;
     }
 
-    public static int 뺀결과를_화면에_출력(int a, int b) {
-        return a - b;
-    }
-
-    public static int 곱한결과를_화면에_출력(int a, int b) {
-        return a * b;
+    public static int oneToSum(int i) {
+        int sum = 0;
+        while (0 <= i) {
+            sum += i;
+            i--;
+        }
+        return sum;
     }
 }
