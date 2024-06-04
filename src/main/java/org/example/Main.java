@@ -5,18 +5,22 @@ import java.util.Scanner;
 class Main {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int a, b;
-        a = sc.nextInt();
-        b = sc.nextInt();
-        계산기.합(a, b);
+        boolean rs = 계산기.is_a_bigger_than_b(10,20);
+        System.out.println(rs);
+
+        rs = 계산기.is_a_bigger_than_b(240,20);
+        System.out.println(rs);
+
+        rs = 계산기.is_a_bigger_than_b(20,20);
+        System.out.println(rs);
     }
 }
 
 class 계산기 {
 
-    static void 합(int a, int b) {
-        System.out.printf("%d + %d = %d", a, b, a + b);
+    static boolean is_a_bigger_than_b (int a, int b) {
+
+        return a > b;
     }
 }
 
