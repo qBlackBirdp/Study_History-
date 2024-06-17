@@ -2,7 +2,7 @@ package org.example2;
 
 class Main2 {
     public static void main(String[] args) {
-        boolean rs = Math.isEvenNumbers(2);
+        boolean rs = Math.isEvenNumbers(1);
         System.out.println(rs);
 
         rs = Math.isEvenNumbers(3);
@@ -26,6 +26,9 @@ class Main2 {
 class Math {
 
     public static boolean isEvenNumbers(int m) {
+        if (m == 1){
+            return false;
+        }
         for (int i = 2; i < m; i++) {
             if (m % i == 0) {
                 return false;

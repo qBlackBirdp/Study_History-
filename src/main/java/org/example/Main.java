@@ -18,8 +18,11 @@ class Main {
     private static int one_to_n_Prime_Numbers_count(int m) {
         int sum = 0;
         for (int i = 2; i <= m; i++) {
-            if (m % i == 0) {
+            if (m / i == 1) {
                 sum += 1;
+            }
+            if (m % i == 0){
+                sum -= 1;
             }
         }
         return sum;
