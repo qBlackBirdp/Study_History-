@@ -14,12 +14,23 @@ class Main2 {
         rs = Math.isEvenNumbers(5);
         System.out.println(rs);
 
+        rs = Math.isEvenNumbers(7);
+        System.out.println(rs);
+
+        rs = Math.isEvenNumbers(9);
+        System.out.println(rs);
+
     }
 }
 
 class Math {
 
-    public static boolean isEvenNumbers(int i) {
-        return i % 2 == 0;
+    public static boolean isEvenNumbers(int m) {
+        for (int i = 2; i < m; i++) {
+            if (m % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
