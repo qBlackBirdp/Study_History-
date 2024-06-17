@@ -16,15 +16,24 @@ class Main {
 
     // 2를 제외한 2의 배수 모두 지우기, 3을 제외한 3의 배수 모두 지우기.
     private static int one_to_n_Prime_Numbers_count(int m) {
-        int sum = 0;
+        int count = 0;
+        boolean[] isPrime = new boolean[m + 1];
         for (int i = 2; i <= m; i++) {
-            if (m / i == 1) {
-                sum += 1;
-            }
-            if (m % i == 0){
-                sum -= 1;
+            isPrime[i] = true;
+        }
+        for (int i = 2; i * i <= m; i++) {
+            if (isPrime[i]) {
+                for (int j = i * i; j <= m; j += i) {
+                    isPrime[j] = false;
+                }
             }
         }
-        return sum;
+        for (int i = 2; i <= m; i++) {
+            if (isPrime[i]) {
+                count++;
+            }
+        }
+
+        return count;
     }
 }
