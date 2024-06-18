@@ -1,13 +1,68 @@
 package org.example2;
 
-// 문제 : 정수 i가 가지고 있는 10을 double 형 변수에 넣고 해당 변수의 값을 다시 i에 넣는 코드를 작성해주세요.
+// 문제 : 아래가 실행되도록 해주세요.
 
-class Main {
+class Main2 {
     public static void main(String[] args) {
-        int i = 10;
-        double d = i; // 여기선 자동형변환 허용
+        전사 a전사 = new 전사();
 
-        i = (int) d; // 여기선 자동형변환 불가능
-        System.out.println(i);
+        String 이름 = "칸";
+        a전사.이름 = 이름;
+        a전사.나이 = 20;
+        a전사.자기소개();
+
+        a전사.나이++;
+        a전사.자기소개();
+
+        a전사.나이 = 30;
+        a전사.이름 = "카니";
+        a전사.자기소개();
+
+        a전사.a무기 = new 활();
+        a전사.공격();
+        // 출력 : 카니가 활로 공격합니다.
+
+        a전사.a무기 = new 칼();
+        a전사.공격();
+        // 출력 : 카니가 칼로 공격합니다.
+    }
+}
+
+class 전사 {
+    // 인스턴스 변수
+    String 이름;
+    // 인스턴스 변수
+    int 나이;
+    // 인스턴스 변수
+    무기 a무기;
+
+    void 자기소개() {
+        System.out.println("안녕하세요. 저는 " + this.나이 + "살 " + this.이름 + " 입니다.");
+    }
+
+    public void 공격() {
+        System.out.println(this.이름 +  "가 " + this.a무기 + "로 공격합니다.");
+    }
+
+}
+
+class 무기 {
+    @Override
+    public String toString() {
+        return "무기";
+    }
+}
+
+class 칼 extends 무기 {
+    @Override
+    public String toString() {
+        return "칼";
+    }
+}
+
+class 활 extends 무기 {
+    @Override
+    public String toString() {
+        return "활";
     }
 }
