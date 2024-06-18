@@ -1,38 +1,47 @@
 package org.example2;
-// 문제 : 1부터 n까지의 소수의 갯수를 출력하는 함수를 만들어주세요.
 
-class Main2 {
+// 문제 : 매개변수를 사용해서 전사가 매번 다르게 공격하도록 해주세요.
+
+class Main {
     public static void main(String[] args) {
-        int rs = one_to_n_Prime_Numbers_count(10);
-        System.out.println("rs : " + rs);
-        // rs : 4
-        rs = one_to_n_Prime_Numbers_count(13);
-        System.out.println("rs : " + rs);
-        // rs : 6
-        rs = one_to_n_Prime_Numbers_count(100);
-        System.out.println("rs : " + rs);
-        // rs : 25
-    }
+        전사 a전사 = new 전사();
 
-    // 2를 제외한 2의 배수 모두 지우기, 3을 제외한 3의 배수 모두 지우기.
-    private static int one_to_n_Prime_Numbers_count(int m) {
-        int count = 0;
-        for (int i = 1; i <= m; i++) {
-            if (isPrimeNumbers(i)) {
-                count++;
-            }
-        }
-        return count;
+        a전사.공격("브라이언", "칼");
+        // 브라이언이(가) 칼(으)로 공격합니다.
+
+        a전사.재공격();
+        // 브라이언이(가) 칼(으)로 공격합니다.
+
+        a전사.공격("필립", "창");
+        // 필립이(가) 창(으)로 공격합니다.
+
+        a전사.공격("마크", "지팡이");
+        // 마크(가) 지팡이(으)로 공격합니다.
+
+        a전사.재공격();
+        // 마크(가) 지팡이(으)로 공격합니다.
+
+        a전사.재공격();
+        // 마크(가) 지팡이(으)로 공격합니다.
     }
-    public static boolean isPrimeNumbers(int m) {
-        if (m == 1){
-            return false;
-        }
-        for (int i = 2; i < m; i++) {
-            if (m % i == 0) {
-                return false;
-            }
-        }
-        return true;
+}
+class 사람 {
+    public void 공격() {
+    }
+}
+class 전사 extends 사람 {
+    String 마지막사람;
+    String 마지막공격;
+
+    void 공격(String a, String b) {
+
+        System.out.println(a + "이(가) " + b +"(으)로 공격합니다.");
+        this.마지막사람 = a;
+        this.마지막공격 = b;
+    }
+    void 재공격() {
+
+            System.out.println(this.마지막사람 + "이(가) " + this.마지막공격 + "(으)로 재공격합니다.");
+
     }
 }
