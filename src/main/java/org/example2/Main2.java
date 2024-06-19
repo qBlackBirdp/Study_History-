@@ -38,27 +38,25 @@ class 전사 {
     }
 
     public void 공격() {
-        a무기.작동(this.이름);
+        System.out.println(this.이름 + "가 " + this.a무기 + "로 공격합니다.");
     }
 
 }
 
 class 무기 {
-    void 작동(String 공격자이름) {
 
-    }
 }
 
 class 칼 extends 무기 {
-
-    void 작동(String 공격자이름) {
-        System.out.println(공격자이름 + "가 칼로 공격합니다.");
+    @Override
+    public String toString() {
+        return "칼";
     }
 }
 
 class 활 extends 무기 {
-
-    void 작동(String 공격자이름) {
-        System.out.println(공격자이름 + "가 활로 공격합니다.");
+    @Override
+    public String toString() {
+        return "활";
     }
 }
