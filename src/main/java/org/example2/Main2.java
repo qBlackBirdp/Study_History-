@@ -5,12 +5,12 @@ package org.example2;
 class Main2 {
     public static void main(String[] args) {
         전사 a전사 = new 전사();
-
         String 이름 = "칸";
         a전사.이름 = 이름;
         a전사.나이 = 20;
         a전사.자기소개();
 
+        a전사.이름 = "뷁";
         a전사.나이++;
         a전사.자기소개();
 
@@ -29,11 +29,8 @@ class Main2 {
 }
 
 class 전사 {
-    // 인스턴스 변수
     String 이름;
-    // 인스턴스 변수
     int 나이;
-    // 인스턴스 변수
     무기 a무기;
 
     void 자기소개() {
@@ -41,28 +38,27 @@ class 전사 {
     }
 
     public void 공격() {
-        System.out.println(this.이름 +  "가 " + this.a무기 + "로 공격합니다.");
+        a무기.작동(this.이름);
     }
 
 }
 
 class 무기 {
-    @Override
-    public String toString() {
-        return "무기";
+    void 작동(String 공격자이름) {
+
     }
 }
 
 class 칼 extends 무기 {
-    @Override
-    public String toString() {
-        return "칼";
+
+    void 작동(String 공격자이름) {
+        System.out.println(공격자이름 + "가 칼로 공격합니다.");
     }
 }
 
 class 활 extends 무기 {
-    @Override
-    public String toString() {
-        return "활";
+
+    void 작동(String 공격자이름) {
+        System.out.println(공격자이름 + "가 활로 공격합니다.");
     }
 }
