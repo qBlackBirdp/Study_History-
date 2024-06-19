@@ -12,7 +12,9 @@ class Main2 {
 
         a전사.이름 = "뷁";
         a전사.나이++;
+        a전사.a무기 = new 칼();
         a전사.자기소개();
+        a전사.공격();
 
         a전사.나이 = 30;
         a전사.이름 = "카니";
@@ -38,25 +40,26 @@ class 전사 {
     }
 
     public void 공격() {
-        System.out.println(this.이름 + "가 " + this.a무기 + "로 공격합니다.");
+        a무기.공격자명 = 이름;
+        a무기.작동();
     }
 
 }
 
 class 무기 {
-
+    String 공격자명;
+    void 작동(){
+    }
 }
 
 class 칼 extends 무기 {
-    @Override
-    public String toString() {
-        return "칼";
+    void 작동(){
+        System.out.println(공격자명 + "칼로 공격합니다.");
     }
 }
 
 class 활 extends 무기 {
-    @Override
-    public String toString() {
-        return "활";
+    void 작동(){
+        System.out.println(공격자명 + "활로 공격합니다.");
     }
 }
