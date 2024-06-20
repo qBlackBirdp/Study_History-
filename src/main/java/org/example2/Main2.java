@@ -2,64 +2,78 @@ package org.example2;
 
 // 문제 : 아래가 실행되도록 해주세요.
 
+import java.util.ArrayList;
+import java.util.List;
+
 class Main2 {
     public static void main(String[] args) {
-        전사 a전사 = new 전사();
-        String 이름 = "칸";
-        a전사.이름 = 이름;
-        a전사.나이 = 20;
-        a전사.자기소개();
+        v1();
+        v2();
+        v3();
+    }
+    static void v3() {
+        System.out.println("==v3==");
+        List<Article> articles = new ArrayList<>();// <>안에는 변수 타입을 지정함.
 
-        a전사.이름 = "뷁";
-        a전사.나이++;
-        a전사.a무기 = new 칼();
-        a전사.자기소개();
-        a전사.공격();
+        articles.add(new Article());
+        articles.add(new Article());
+        articles.add(new Article());
 
-        a전사.나이 = 30;
-        a전사.이름 = "카니";
-        a전사.자기소개();
+        for (int i = 0; i < articles.size(); i++) {
+            Article article = articles.get(i);
+            System.out.println(article.id);
+        }
+    }
+    static void v2() {
+        System.out.println("==v2==");
+        ArrayList articles = new ArrayList();
 
-        a전사.a무기 = new 활();
-        a전사.공격();
-        // 출력 : 카니가 활로 공격합니다.
+        articles.add(new Article());
+        articles.add(new Article());
+        articles.add(new Article());
 
-        a전사.a무기 = new 칼();
-        a전사.공격();
-        // 출력 : 카니가 칼로 공격합니다.
+        for (int i = 0; i < articles.size(); i++) {
+            Article article = (Article) articles.get(i);
+            System.out.println(article.id);
+        }
+    }
+    static void v1(){
+        System.out.println("==v1==");
+        Article[] articles = new Article[100];
+
+        int articleSize = 0;
+
+        articles[0] = new Article();
+        articleSize++;
+        articles[1] = new Article();
+        articleSize++;
+        articles[2] = new Article();
+        articleSize++;
+
+        for (int i = 0; i < articleSize; i++) {
+            System.out.println(articles[i].id);
+        }
     }
 }
 
-class 전사 {
-    String 이름;
-    int 나이;
-    무기 a무기;
+class Article {
+    static int lastId; //스태틱 변수는 공공재다.
 
-    void 자기소개() {
-        System.out.println("안녕하세요. 저는 " + this.나이 + "살 " + this.이름 + " 입니다.");
+    int id;
+    String regDate;
+
+    static {
+        lastId = 0;
     }
 
-    public void 공격() {
-        a무기.공격자명 = 이름;
-        a무기.작동();
+    Article() {
+        this( lastId+ 1, "2024-12-12 12:12:12");
+        lastId++;
     }
 
-}
-
-class 무기 {
-    String 공격자명;
-    void 작동(){
+    Article(int id, String regDate) {
+        this.id = id;
+        this.regDate = regDate;
     }
-}
 
-class 칼 extends 무기 {
-    void 작동(){
-        System.out.println(공격자명 + "칼로 공격합니다.");
-    }
-}
-
-class 활 extends 무기 {
-    void 작동(){
-        System.out.println(공격자명 + "활로 공격합니다.");
-    }
 }
