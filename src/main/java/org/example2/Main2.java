@@ -2,78 +2,81 @@ package org.example2;
 
 // 문제 : 아래가 실행되도록 해주세요.
 
-import java.util.ArrayList;
-import java.util.List;
-
 class Main2 {
     public static void main(String[] args) {
-        v1();
-        v2();
-        v3();
+        사람인력관리소 a사람인력관리소 = new 사람인력관리소();
+
+        a사람인력관리소.add사람("홍길순", 33);
+        // 나이가 33살인 1번째 사람(홍길순)이 추가되었습니다.
+        a사람인력관리소.add사람("홍길동", 20);
+        // 나이가 20살인 2번째 사람(홍길동)이 추가되었습니다.
+        a사람인력관리소.add사람("임꺽정", 30);
+        // 나이가 30살인 3번째 사람(임꺽정)이 추가되었습니다.
+
+        사람 a사람1 = a사람인력관리소.get사람(1);
+        a사람1.자기소개();
+        // 저는 1번, 홍길순, 33살 입니다.
+
+        사람 a사람2 = a사람인력관리소.get사람(2);
+        a사람2.자기소개();
+        // 저는 2번, 홍길동, 20살 입니다.
+
+        사람 a사람3 = a사람인력관리소.get사람(3);
+        a사람3.자기소개();
+        // 저는 3번, 임꺽정, 30살 입니다.
     }
-    static void v3() {
-        System.out.println("==v3==");
-        List<Article> articles = new ArrayList<>();// <>안에는 변수 타입을 지정함.
 
-        articles.add(new Article());
-        articles.add(new Article());
-        articles.add(new Article());
 
-        for (int i = 0; i < articles.size(); i++) {
-            Article article = articles.get(i);
-            System.out.println(article.id);
+}
+class 사람인력관리소 {
+    사람 a사람0;
+    사람 a사람1;
+    사람 a사람2;
+    사람 a사람3;
+
+    int 마지막_사람의_번호 = 0;
+
+    void add사람(String 이름, int 나이) {
+        int 번호 = 마지막_사람의_번호 + 1;
+        사람 a사람 = new 사람();
+        a사람.번호 = 번호;
+        a사람.이름 = 이름;
+        a사람.나이 = 나이;
+
+        if (번호 == 1) {
+            a사람0 = a사람;
+        } else if (번호 == 2) {
+            a사람1 = a사람;
+        } else if (번호 == 3) {
+            a사람2 = a사람;
+        } else if (번호 == 4) {
+            a사람3 = a사람;
         }
+
+        System.out.printf("나이가 %d살인 %d번째 사람(%s)이 추가되었습니다.\n", 나이, 번호, 이름);
+        마지막_사람의_번호++;
     }
-    static void v2() {
-        System.out.println("==v2==");
-        ArrayList articles = new ArrayList();
 
-        articles.add(new Article());
-        articles.add(new Article());
-        articles.add(new Article());
-
-        for (int i = 0; i < articles.size(); i++) {
-            Article article = (Article) articles.get(i);
-            System.out.println(article.id);
+    사람 get사람(int 번호) {
+        if (번호 == 1) {
+            return a사람0;
+        } else if (번호 == 2) {
+            return a사람1;
+        } else if (번호 == 3) {
+            return a사람2;
+        } else if (번호 == 4) {
+            return a사람3;
         }
-    }
-    static void v1(){
-        System.out.println("==v1==");
-        Article[] articles = new Article[100];
-
-        int articleSize = 0;
-
-        articles[0] = new Article();
-        articleSize++;
-        articles[1] = new Article();
-        articleSize++;
-        articles[2] = new Article();
-        articleSize++;
-
-        for (int i = 0; i < articleSize; i++) {
-            System.out.println(articles[i].id);
-        }
+        return null;
     }
 }
 
-class Article {
-    static int lastId; //스태틱 변수는 공공재다.
+class 사람 {
+    int 번호;
+    String 이름;
+    int 나이;
 
-    int id;
-    String regDate;
-
-    static {
-        lastId = 0;
+    void 자기소개() {
+        System.out.printf("저는 %d번, %s, %d살 입니다.\n", this.번호, this.이름, this.나이);
     }
-
-    Article() {
-        this( lastId+ 1, "2024-12-12 12:12:12");
-        lastId++;
-    }
-
-    Article(int id, String regDate) {
-        this.id = id;
-        this.regDate = regDate;
-    }
-
 }
