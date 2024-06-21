@@ -2,6 +2,9 @@ package org.example2;
 
 // 문제 : 아래가 실행되도록 해주세요.
 
+import java.util.HashMap;
+import java.util.Map;
+
 class Main2 {
     public static void main(String[] args) {
         사람인력관리소 a사람인력관리소 = new 사람인력관리소();
@@ -30,11 +33,9 @@ class Main2 {
 }
 
 class 사람인력관리소 {
-    사람[] 사람들 = new 사람[5];
-//    사람 a사람0;
-//    사람 a사람1;
-//    사람 a사람2;
-//    사람 a사람3;
+    //    사람[] 사람들 = new 사람[5];
+//    List<사람> 사람들 = new ArrayList<>();
+    Map<Integer, 사람> 사람들 = new HashMap<>();
 
     int 마지막_사람의_번호 = 0;
 
@@ -45,33 +46,18 @@ class 사람인력관리소 {
         a사람.이름 = 이름;
         a사람.나이 = 나이;
 
-        사람들[번호 - 1] = a사람;
+//        사람들[번호 - 1] = a사람;
+        사람들.put(번호, a사람);
 
-//        if (번호 == 1) {
-//            a사람0 = a사람;
-//        } else if (번호 == 2) {
-//            a사람1 = a사람;
-//        } else if (번호 == 3) {
-//            a사람2 = a사람;
-//        } else if (번호 == 4) {
-//            a사람3 = a사람;
-//        }
 
         System.out.printf("나이가 %d살인 %d번째 사람(%s)이 추가되었습니다.\n", 나이, 번호, 이름);
         마지막_사람의_번호++;
     }
 
     사람 get사람(int 번호) {
-//        if (번호 == 1) {
-//            return a사람0;
-//        } else if (번호 == 2) {
-//            return a사람1;
-//        } else if (번호 == 3) {
-//            return a사람2;
-//        } else if (번호 == 4) {
-//            return a사람3;
-//        }
-        return 사람들[번호 -1];
+
+//        return 사람들[번호 -1];
+        return 사람들.get(번호);
     }
 }
 
