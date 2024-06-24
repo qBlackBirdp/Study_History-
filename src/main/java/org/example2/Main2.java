@@ -1,6 +1,7 @@
 package org.example2;
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 class Main2 {
@@ -9,12 +10,16 @@ class Main2 {
 
         String[] inputs = sc.nextLine().split(" ");
 
-        long sum = 0;
+        long sum = Arrays.stream(inputs)
+                .mapToLong(e -> Long.parseLong(e))
+                .sum();
 
-        for (String inputData : inputs) {
-            sum += Long.parseLong(inputData);
-        }
-
+//        long sum = 0;
+//
+//        for (String inputData : inputs) {
+//            sum += Long.parseLong(inputData);
+//        }
+//
         System.out.println(sum);
 
         sc.close();
